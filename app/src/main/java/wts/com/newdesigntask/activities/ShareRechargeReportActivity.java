@@ -150,6 +150,10 @@ public class ShareRechargeReportActivity extends AppCompatActivity {
         {
             imgStatus.setImageDrawable(getResources().getDrawable(R.drawable.success));
         }
+        else if (status.equalsIgnoreCase("Pending"))
+        {
+            imgStatus.setImageDrawable(getResources().getDrawable(R.drawable.pending));
+        }
         else
         {
             imgStatus.setImageDrawable(getResources().getDrawable(R.drawable.failed));

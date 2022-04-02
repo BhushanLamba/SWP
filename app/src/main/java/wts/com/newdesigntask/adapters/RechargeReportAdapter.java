@@ -44,21 +44,23 @@ public class RechargeReportAdapter extends RecyclerView.Adapter<RechargeReportAd
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
 
-        String operator=rechargeReportModelArrayList.get(position).getOperatorName();
-        String number=rechargeReportModelArrayList.get(position).getMobileNo();
-        String date=rechargeReportModelArrayList.get(position).getDate();
-        String time=rechargeReportModelArrayList.get(position).getTime();
-        String amount=rechargeReportModelArrayList.get(position).getAmount();
-        String status=rechargeReportModelArrayList.get(position).getStatus();
+        String operator = rechargeReportModelArrayList.get(position).getOperatorName();
+        String number = rechargeReportModelArrayList.get(position).getMobileNo();
+        String date = rechargeReportModelArrayList.get(position).getDate();
+        String time = rechargeReportModelArrayList.get(position).getTime();
+        String amount = rechargeReportModelArrayList.get(position).getAmount();
+        String status = rechargeReportModelArrayList.get(position).getStatus();
 
-        holder.tvOperator.setText("Recharge For "+operator);
-        holder.tvNumber.setText("On "+number);
-        holder.tvDateTime.setText(date+","+time);
+        holder.tvOperator.setText("Recharge For " + operator);
+        holder.tvNumber.setText("On " + number);
+        holder.tvDateTime.setText(date + "," + time);
         holder.tvAmount.setText(amount);
 
-        if (status.equalsIgnoreCase("Success") || status.equalsIgnoreCase("Successful"))
-        {
+        if (status.equalsIgnoreCase("Success") || status.equalsIgnoreCase("Successful")) {
             holder.imgStatus.setImageDrawable(context.getResources().getDrawable(R.drawable.success));
+        } else if (status.equalsIgnoreCase("Pending"))
+        {
+            holder.imgStatus.setImageDrawable(context.getResources().getDrawable(R.drawable.pending));
         }
         else
         {
