@@ -27,8 +27,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import payworld.com.aeps_lib.AepsHome;
-import payworld.com.aeps_lib.Utility;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -275,7 +273,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private String getHeaderJson() {
+    /*private String getHeaderJson() {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("merchantId", merchantId);
@@ -285,7 +283,7 @@ public class HomeFragment extends Fragment {
             ex.printStackTrace();
         }
         return jsonObject.toString();
-    }
+    }*/
 
     private String getBodyJson() {
         JSONObject jsonObject = new JSONObject();

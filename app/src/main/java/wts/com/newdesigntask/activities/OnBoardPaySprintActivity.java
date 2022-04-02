@@ -30,7 +30,6 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.paysprint.onboardinglib.activities.HostActivity;
 
 import wts.com.newdesigntask.R;
 
@@ -153,7 +152,7 @@ public class OnBoardPaySprintActivity extends AppCompatActivity {
     };
 
     private void launchOnBoardSdk() {
-        Intent intent = new Intent(OnBoardPaySprintActivity.this, HostActivity.class);
+       /* Intent intent = new Intent(OnBoardPaySprintActivity.this, HostActivity.class);
         intent.putExtra("pId", partnerId);//partner Id provided in credential
         intent.putExtra("pApiKey", partnerKey);//JWT API Key provided in credential
         intent.putExtra("mCode", mobileNo);//Merchant Code
@@ -163,7 +162,7 @@ public class OnBoardPaySprintActivity extends AppCompatActivity {
         intent.putExtra("firm", firmName);
         intent.putExtra("email", email);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivityForResult(intent, 999);
+        startActivityForResult(intent, 999);*/
     }
 
     @Override
