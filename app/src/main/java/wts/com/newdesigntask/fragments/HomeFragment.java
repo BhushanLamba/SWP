@@ -1,8 +1,11 @@
 package wts.com.newdesigntask.fragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -33,6 +36,7 @@ import wts.com.newdesigntask.R;
 import wts.com.newdesigntask.activities.CreatePsaActivity;
 import wts.com.newdesigntask.activities.ElectricityActivity;
 import wts.com.newdesigntask.activities.HomeDashboardActivity;
+import wts.com.newdesigntask.activities.OnBoardPaySprintActivity;
 import wts.com.newdesigntask.activities.PaySprintActivity;
 import wts.com.newdesigntask.activities.PurchaseCouponActivity;
 import wts.com.newdesigntask.activities.RechargeActivity;
@@ -53,6 +57,7 @@ public class HomeFragment extends Fragment {
     int REQ_CODE_AEPS = 1001;
     String agentid,userId;
     SharedPreferences sharedPreferences;
+    String aepsServiceType;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -111,34 +116,42 @@ public class HomeFragment extends Fragment {
 
         cashWithdrawLayout.setOnClickListener(v->
         {
-            Intent intent=new Intent(getContext(),PaySprintActivity.class);
-            intent.putExtra("transactionType","cw");
+            aepsServiceType="cw";
+            checkKycStatus();
+            /*Intent intent=new Intent(getContext(),PaySprintActivity.class);
+            intent.putExtra("transactionType",aepsServiceType);
             intent.putExtra("balance","500");
-            startActivity(intent);
+            startActivity(intent);*/
         });
 
         balanceEnquiryLayout.setOnClickListener(v->
         {
-            Intent intent=new Intent(getContext(),PaySprintActivity.class);
+            aepsServiceType="be";
+            checkKycStatus();
+            /*Intent intent=new Intent(getContext(),PaySprintActivity.class);
             intent.putExtra("transactionType","be");
             intent.putExtra("balance","500");
-            startActivity(intent);
+            startActivity(intent);*/
         });
 
         miniStatementLayout.setOnClickListener(v->
         {
-            Intent intent=new Intent(getContext(),PaySprintActivity.class);
+            aepsServiceType="ms";
+            checkKycStatus();
+           /* Intent intent=new Intent(getContext(),PaySprintActivity.class);
             intent.putExtra("transactionType","ms");
             intent.putExtra("balance","500");
-            startActivity(intent);
+            startActivity(intent);*/
         });
 
         aadharPayLayout.setOnClickListener(v->
         {
-            Intent intent=new Intent(getContext(),PaySprintActivity.class);
+            aepsServiceType="m";
+            checkKycStatus();
+            /*Intent intent=new Intent(getContext(),PaySprintActivity.class);
             intent.putExtra("transactionType","m");
             intent.putExtra("balance","500");
-            startActivity(intent);
+            startActivity(intent);*/
         });
 
         settlementLayout.setOnClickListener(v->
@@ -147,6 +160,54 @@ public class HomeFragment extends Fragment {
         });
 
     }
+
+    private void checkKycStatus() {
+        final AlertDialog pDialog = new AlertDialog.Builder(getContext()).create();
+        LayoutInflater inflater = getLayoutInflater();
+        View convertView = inflater.inflate(R.layout.custom_progress_dialog, null);
+        pDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        pDialog.setView(convertView);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Call<JsonObject> call = RetrofitClient.getInstance().getApi().checkUserKycStatus(userId);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject responseObject = new JSONObject(String.valueOf(response.body()));
+                        String responseCode = responseObject.getString("data");
+
+                        Intent intent;
+                        if (responseCode.equalsIgnoreCase("true")) {
+                            intent = new Intent(getContext(), PaySprintActivity.class);
+                            intent.putExtra("transactionType",aepsServiceType);
+                            intent.putExtra("balance","500");
+                        } else {
+                            intent = new Intent(getContext(), OnBoardPaySprintActivity.class);
+                        }
+                        startActivity(intent);
+
+                        pDialog.dismiss();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        pDialog.dismiss();
+                    }
+                } else {
+                    pDialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                pDialog.dismiss();
+            }
+        });
+    }
+
 
     private void checkPsaStatus() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());

@@ -16,6 +16,10 @@ import retrofit2.http.Query;
 public interface WebServiceInterface {
 
     @FormUrlEncoded
+    @POST("CheckAePSUserKyc")
+    Call<JsonObject> checkUserKycStatus(@Field("userID") String userID);
+
+    @FormUrlEncoded
     @POST("FetchAePSReport")
     Call<JsonObject> getAepsReport(@Field("UserId") String UserId,
                                    @Field("fromdate") String fromdate,

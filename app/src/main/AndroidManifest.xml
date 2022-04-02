@@ -23,6 +23,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
         <activity
+            android:name=".activities.OnBoardPaySprintActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.ShareAepsReportActivity"
             android:exported="true" />
         <activity
