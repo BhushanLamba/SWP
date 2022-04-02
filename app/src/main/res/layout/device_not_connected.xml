@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/home_dash_back"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textStyle="bold"
+        android:fontFamily="@font/aldrich"
+        android:layout_margin="10dp"
+        android:textSize="26sp"
+        android:textColor="@color/black"
+        android:text="App Not found"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:src="@drawable/not_found"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_ok"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:background="@drawable/button_back"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

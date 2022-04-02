@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settlement_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SettlementActivity">
+
+    <TextView
+        android:id="@+id/text_settlement"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_500"
+        android:gravity="center"
+        android:text="Settlement"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/text_settlement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_settlement">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/bank_details_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_amount">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bank_name_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/transpparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <Spinner
+                        android:id="@+id/bank_name_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/et_account_holder_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/transpparent"
+                    android:hint="Account Holder Name"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bank_name_container" />
+
+                <EditText
+                    android:id="@+id/et_account_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/transpparent"
+                    android:hint="Account Number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/transaction_type_container" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/account_type_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/transpparent"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_account_holder_name"
+                    tools:visibility="visible">
+
+                    <Spinner
+                        android:id="@+id/account_type_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="#00000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/img_down1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_down1"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/down"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/et_ifsc_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/transpparent"
+                    android:hint="IFSC Number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_account_number" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/transaction_type_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/transpparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/account_type_container">
+
+                    <Spinner
+                        android:id="@+id/transaction_type_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_amount"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:background="@color/transpparent"
+                android:hint="Amount"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/button_back"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bank_details_container" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_banks"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/bordered_back"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Add More Banks"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_submit"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

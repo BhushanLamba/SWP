@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/add_money_layout"
+    tools:context=".activities.AddMoneyActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_back"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aldrich"
+                    android:text="Welcome Back !!!"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/aldrich"
+                    android:text="₹ 00.00"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/aldrich"
+                    android:text="Username"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:src="@drawable/upi" />
+
+            <EditText
+                android:id="@+id/et_amount"
+                android:singleLine="true"
+                android:maxLength="5"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="20dp"
+                android:background="@drawable/border_back"
+                android:hint="Amount"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/aldrich"
+                android:text="Pay Using"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:elevation="8dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/home_dash_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <ImageView
+                    android:id="@+id/img_gpay"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_dash_back"
+                    android:elevation="10dp"
+                    android:src="@drawable/gpay" />
+
+                <ImageView
+                    android:id="@+id/img_paytm"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_dash_back"
+                    android:elevation="10dp"
+                    android:src="@drawable/paytm" />
+
+                <ImageView
+                    android:id="@+id/img_phonepe"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_dash_back"
+                    android:elevation="10dp"
+                    android:src="@drawable/phonepe" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:elevation="8dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/home_dash_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/img_amazon"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_dash_back"
+                    android:elevation="10dp"
+                    android:src="@drawable/amazon" />
+
+                <ImageView
+                    android:id="@+id/img_bhim"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_dash_back"
+                    android:elevation="10dp"
+                    android:src="@drawable/bhim" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

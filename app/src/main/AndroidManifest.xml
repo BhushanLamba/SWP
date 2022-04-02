@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="wts.com.newdesigntask">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NewDesignTask"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute">
+        <activity
+            android:name=".activities.ShareAepsReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AepsReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SettlementReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UploadbankDocumentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AddBankDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SettlementActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AepsTransactionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MiniStatementPaySprintActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.PaySprintActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.DthPlansActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MplanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.PlansActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ShareBbpsReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.BbpsReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ShareUtiReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UtiReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.PurchaseCouponActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CreatePsaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ElectricityActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.WalletSummaryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UpiReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CreditDebitBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.FundTransferActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ShareRechargeReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.RechargeReportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.RechargeStatusActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AddMoneyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.RechargeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.HomeDashboardActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
