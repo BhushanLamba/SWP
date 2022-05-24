@@ -1,9 +1,5 @@
 package wts.com.newdesigntask.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
@@ -18,6 +14,10 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.JsonObject;
@@ -47,10 +47,10 @@ public class RechargeReportActivity extends AppCompatActivity {
     ArrayList<RechargeReportModel> rechargeReportModelArrayList;
     SharedPreferences sharedPreferences;
     String userId;
-    String toDate,fromDate;
+    String toDate, fromDate;
     SimpleDateFormat simpleDateFormat, webServiceDateFormat;
     ImageView imgNoDataFound;
-    String serviceType,mobileNo,transactionId,status,openingBalance,closingBalance,amount,commission,date,operatorName,operatorImg;
+    String serviceType, mobileNo, transactionId, status, openingBalance, closingBalance, amount, commission, date, operatorName, operatorImg;
     ImageView imgFilter;
 
     @Override
@@ -59,8 +59,8 @@ public class RechargeReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recharge_report);
         initViews();
 
-        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(RechargeReportActivity.this);
-        userId=sharedPreferences.getString("userid",null);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(RechargeReportActivity.this);
+        userId = sharedPreferences.getString("userid", null);
 
         simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         webServiceDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
@@ -72,7 +72,7 @@ public class RechargeReportActivity extends AppCompatActivity {
 
         Calendar newDate1 = Calendar.getInstance();
         newDate1.set(year, month, day);
-        newDate1.add(Calendar.MONTH,-1);
+        newDate1.add(Calendar.MONTH, -1);
         fromDate = webServiceDateFormat.format(newDate1.getTime());
 
 
@@ -83,10 +83,10 @@ public class RechargeReportActivity extends AppCompatActivity {
         Calendar newDate2 = Calendar.getInstance();
         newDate2.set(toYear, toMonth, toDay);
         toDate = webServiceDateFormat.format(newDate2.getTime());
-        
+
         getReport();
 
-        imgFilter.setOnClickListener(v->
+        imgFilter.setOnClickListener(v ->
         {
             showBottomDateDialog();
         });
@@ -175,7 +175,7 @@ public class RechargeReportActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Call<JsonObject> call = RetrofitClient.getInstance().getApi().getRechargeReport("",userId,fromDate,toDate);
+        Call<JsonObject> call = RetrofitClient.getInstance().getApi().getRechargeReport("", userId, fromDate, toDate);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -248,12 +248,10 @@ public class RechargeReportActivity extends AppCompatActivity {
                                     RecyclerView.VERTICAL, false));
 
                             RechargeReportAdapter rechargeReportAdapter = new RechargeReportAdapter(rechargeReportModelArrayList,
-                                    RechargeReportActivity.this,RechargeReportActivity.this);
+                                    RechargeReportActivity.this, RechargeReportActivity.this);
                             recyclerView.setAdapter(rechargeReportAdapter);
                             pDialog.dismiss();
-                        }
-
-                        else  {
+                        } else {
                             pDialog.dismiss();
 
                             imgNoDataFound.setVisibility(View.VISIBLE);
@@ -284,8 +282,8 @@ public class RechargeReportActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        recyclerView=findViewById(R.id.all_report_recycler);
-        imgNoDataFound=findViewById(R.id.img_no_data_found);
-        imgFilter=findViewById(R.id.img_filter);
+        recyclerView = findViewById(R.id.all_report_recycler);
+        imgNoDataFound = findViewById(R.id.img_no_data_found);
+        imgFilter = findViewById(R.id.img_filter);
     }
 }

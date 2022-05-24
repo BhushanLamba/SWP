@@ -125,7 +125,8 @@ public class ElectricityActivity extends AppCompatActivity {
 
                         if (responseCode.equalsIgnoreCase("200")) {
 
-                            JSONObject dataObject = responseObject.getJSONObject("data");
+                            JSONArray dataArray = responseObject.getJSONArray("data");
+                            JSONObject dataObject=dataArray.getJSONObject(0);
 
                             amount = dataObject.getString("DueAmount");
                             dueDate = dataObject.getString("DueDate");
