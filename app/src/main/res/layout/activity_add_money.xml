@@ -95,8 +95,7 @@
                 android:background="@drawable/home_dash_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:orientation="horizontal">
 
 
                 <ImageView
@@ -122,6 +121,8 @@
                     android:src="@drawable/paytm" />
 
                 <ImageView
+                    tools:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/img_phonepe"
                     android:padding="14dp"
                     android:layout_width="match_parent"
@@ -145,6 +146,8 @@
 
 
                 <ImageView
+                    tools:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/img_amazon"
                     android:padding="14dp"
                     android:layout_width="match_parent"

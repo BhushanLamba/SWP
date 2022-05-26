@@ -1,7 +1,6 @@
 package wts.com.newdesigntask.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
@@ -33,7 +32,8 @@ public class HomeDashboardActivity extends AppCompatActivity {
 
     LinearLayout homeLayout,profileLayout,reportLayout,moreLayout;
     ImageView imgHome,imgProfile,imgReport,imgMore;
-    TextView tvAddMoney,tvBalance;
+    TextView tvBalance;
+    ImageView imgAddMoney;
     String userId;
     public static String balance;
     SharedPreferences sharedPreferences;
@@ -90,7 +90,7 @@ public class HomeDashboardActivity extends AppCompatActivity {
 
     private void handleClickEvents() {
 
-        tvAddMoney.setOnClickListener(new View.OnClickListener() {
+        imgAddMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeDashboardActivity.this,AddMoneyActivity.class));
@@ -108,7 +108,7 @@ public class HomeDashboardActivity extends AppCompatActivity {
             loadFragment(new HomeFragment());
         });
 
-        imgProfile.setOnClickListener(v->
+        profileLayout.setOnClickListener(v->
         {
             imgHome.setImageResource(R.drawable.home);
             imgProfile.setImageResource(R.drawable.user1);
@@ -118,7 +118,7 @@ public class HomeDashboardActivity extends AppCompatActivity {
             loadFragment(new ProfileFragment());
         });
 
-        imgReport.setOnClickListener(v->
+        reportLayout.setOnClickListener(v->
         {
             imgHome.setImageResource(R.drawable.home);
             imgProfile.setImageResource(R.drawable.user);
@@ -128,7 +128,7 @@ public class HomeDashboardActivity extends AppCompatActivity {
             loadFragment(new ReportsFragment());
         });
 
-        imgMore.setOnClickListener(v->
+        moreLayout.setOnClickListener(v->
         {
             imgHome.setImageResource(R.drawable.home);
             imgProfile.setImageResource(R.drawable.user);
@@ -147,7 +147,7 @@ public class HomeDashboardActivity extends AppCompatActivity {
         imgProfile=findViewById(R.id.img_profile);
         imgReport=findViewById(R.id.img_report);
         imgMore=findViewById(R.id.img_more);
-        tvAddMoney=findViewById(R.id.tv_add_money);
+        imgAddMoney =findViewById(R.id.img_add_money);
         tvBalance=findViewById(R.id.tv_main_wallet);
     }
 }

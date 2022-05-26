@@ -47,13 +47,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingVertical="10dp"
         android:id="@+id/wallet_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/home_dash_back"
         android:elevation="8dp"
+        android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="@id/bar_container"
         app:layout_constraintTop_toBottomOf="@id/bar_container">
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Wallet Balance:"
+            android:text="Wallet:"
             android:textColor="@color/purple_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_wallet"
@@ -91,21 +91,19 @@
             app:layout_constraintStart_toEndOf="@id/text_wallet_balance"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_add_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/img_add_money"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/border_back"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="2dp"
-            android:text="Add Money"
-            android:textColor="@color/purple_700"
+            android:padding="10dp"
+            android:src="@drawable/add_money"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toEndOf="@id/tv_main_wallet"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/purple_200" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -134,13 +132,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:paddingTop="8dp"
-        android:background="@color/white"
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -151,7 +147,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:id="@+id/img_home"
@@ -173,7 +170,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:id="@+id/img_profile"
@@ -195,7 +193,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:id="@+id/img_report"
@@ -212,6 +211,8 @@
         </LinearLayout>
 
         <LinearLayout
+            android:paddingTop="10dp"
+
             android:id="@+id/more_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
